@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0a0e17;
+    color: #e0e7ff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* Header — neon + circuit fon */
+
+header {
+    position: relative;
+    min-height: 80vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('https://thumbs.dreamstime.com/b/abstract-blue-circuit-board-technology-background-image-glowing-pattern-creates-tech-perfect-website-headers-377702782.jpg') center/cover no-repeat;
+    opacity: 0.12;
+    z-index: 0;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+header h1 {
+    font-size: 4.5rem;
+    background: linear-gradient(90deg, #60a5fa, #a5b4fc, #c084fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(96, 165, 250, 0.6);
+}
+
+header p {
+    font-size: 1.5rem;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+}
+
+
+/* Pulsatsiya + hover tugma */
+
+.telegram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, #0ea5e9, #6366f1);
+    color: white;
+    padding: 18px 40px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 0 40px rgba(14, 165, 233, 0.5);
+    transition: all 0.4s ease;
+    animation: pulse 2s infinite;
+}
+
+.telegram-btn:hover {
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 0 60px rgba(99, 102, 241, 0.7);
+    background: linear-gradient(45deg, #38bdf8, #818cf8);
+}
+
+.telegram-btn i {
+    font-size: 1.8rem;
+}
+
+
+/* News cards — grid + hover effektlar */
+
+.news-section {
+    padding: 100px 0 80px;
+}
+
+.news-section h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    color: #60a5fa;
+    text-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.news-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.news-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.news-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.news-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.news-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    border-color: #60a5fa;
+    box-shadow: 0 20px 50px rgba(96, 165, 250, 0.25);
+}
+
+.news-date {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.news-card h3 {
+    color: #c084fc;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    transition: color 0.4s;
+}
+
+.news-card:hover h3 {
+    color: #a5b4fc;
+}
+
+.read-more {
+    color: #60a5fa;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 1.2rem;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.read-more:hover {
+    color: #a5b4fc;
+    transform: translateX(10px);
+}
+
+
+/* About & Footer */
+
+.about {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    margin: 80px 0;
+    border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+footer {
+    background: #0f172a;
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid rgba(96, 165, 250, 0.1);
+}
+
+footer a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+
+/* Animatsiyalar */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 30px rgba(14, 165, 233, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(14, 165, 233, 0.7);
+    }
+}
+
+
+/* Mobil moslashuv */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 3.2rem;
+    }
+    .telegram-btn {
+        padding: 14px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(45deg, #e6683c, #dc2743, #cc2366, #bc1888, #f09433);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 39, 67, 0.4);
+}
